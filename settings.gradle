@@ -8,3 +8,4 @@ dependencyResolutionManagement {
 }
 rootProject.name = "My_doit_kotlin_sample"
 include ':app'
+include ':ch8_event'
