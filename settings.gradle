@@ -9,3 +9,5 @@ dependencyResolutionManagement {
 rootProject.name = "My_doit_kotlin_sample"
 include ':app'
 include ':ch8_event'
+include ':ch9_resource'
+include ':ch10_notification'
