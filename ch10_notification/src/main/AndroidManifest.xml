@@ -2,9 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.huni.engineer.ch10_notification">
 
-
     <!-- 진동을 위해 추가 -->
-    <uses-permission android:name="android.permission.VIBRATE"/>
+    <uses-permission android:name="android.permission.VIBRATE" />
 
     <application
         android:allowBackup="true"
@@ -13,6 +12,17 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.My_doit_kotlin_sample">
+        <receiver
+            android:name=".receiver.ReplyReceiver"
+            android:enabled="true"
+            android:exported="true"></receiver>
+
+        <activity
+            android:name=".KakaoAlarmSampleActivity"
+            android:exported="true" />
+        <activity
+            android:name=".EmptyActivity"
+            android:exported="true" />
         <activity
             android:name=".MainActivity"
             android:exported="true">
@@ -22,8 +32,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
-        <activity android:name=".DialogTestActivity"/>
+        <activity android:name=".DialogTestActivity" />
     </application>
 
 </manifest>
