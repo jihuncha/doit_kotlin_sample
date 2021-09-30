@@ -20,7 +20,7 @@
         android:id="@+id/bt_next"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Next"
+        android:text="Toolbar"
         app:layout_constraintTop_toBottomOf="@+id/tv_hello_world"
         app:layout_constraintLeft_toRightOf="@+id/bt_next_fragment"
         app:layout_constraintRight_toRightOf="parent"
@@ -32,7 +32,7 @@
         android:layout_height="wrap_content"
         android:text="Fragment"
         app:layout_constraintTop_toBottomOf="@+id/tv_hello_world"
-        app:layout_constraintLeft_toRightOf="@+id/bt_next_recyclerview"
+        app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toLeftOf="@+id/bt_next"
         app:layout_constraintBottom_toBottomOf="parent"/>
 
@@ -41,9 +41,19 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Recyclerview"
-        app:layout_constraintTop_toBottomOf="@+id/tv_hello_world"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toRightOf="@+id/bt_next_viewpager"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/tv_hello_world"/>
+
+    <Button
+        android:id="@+id/bt_next_viewpager"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="viewpager"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/tv_hello_world"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toLeftOf="@+id/bt_next_fragment"
-        app:layout_constraintBottom_toBottomOf="parent"/>
+        app:layout_constraintRight_toLeftOf="@+id/bt_next_recyclerview"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

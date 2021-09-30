@@ -3,11 +3,10 @@ package com.huni.ch11_jetpack_library
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
-import android.view.MenuItem
 import com.huni.ch11_jetpack_library.databinding.ActivitySecondBinding
 
-class SecondActivity : AppCompatActivity() {
-    val TAG : String = SecondActivity::class.java.simpleName
+class ToolbarActionbarActivity : AppCompatActivity() {
+    val TAG : String = ToolbarActionbarActivity::class.java.simpleName
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

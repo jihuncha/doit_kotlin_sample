@@ -15,7 +15,7 @@
         <!-- up 버튼 정의 : parentActivityName -->
         <!-- android:parentActivityName=".MainActivity" -->
         <activity
-            android:name=".SecondActivity"
+            android:name=".ToolbarActionbarActivity"
             android:exported="true"
             android:theme="@style/Theme.TestTheme1" />
         <activity
