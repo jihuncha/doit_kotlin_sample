@@ -23,5 +23,20 @@ class MainActivity : AppCompatActivity() {
                 startActivity(intent)
             }
         })
+
+        binding.btNextFragment.setOnClickListener {
+            val intent : Intent = Intent(this@MainActivity, FragmentActivity::class.java)
+
+            startActivity(intent)
+        }
+
+        binding.btNextRecyclerview.setOnClickListener(object : View.OnClickListener{
+            override fun onClick(v: View?) {
+                val intent = Intent(this@MainActivity, RecyclerViewActivity::class.java)
+
+                startActivity(intent)
+            }
+
+        })
     }
 }

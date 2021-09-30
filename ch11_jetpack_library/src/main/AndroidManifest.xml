@@ -9,13 +9,19 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.My_doit_kotlin_sample">
-
+        <activity
+            android:name=".RecyclerViewActivity"
+            android:exported="true" />
         <!-- up 버튼 정의 : parentActivityName -->
-<!--        android:parentActivityName=".MainActivity"-->
+        <!-- android:parentActivityName=".MainActivity" -->
         <activity
             android:name=".SecondActivity"
             android:exported="true"
-            android:theme="@style/Theme.TestTheme1"/>
+            android:theme="@style/Theme.TestTheme1" />
+        <activity
+            android:name=".FragmentActivity"
+            android:exported="true"
+            android:theme="@style/Theme.TestTheme1" />
         <activity
             android:name=".MainActivity"
             android:exported="true">
