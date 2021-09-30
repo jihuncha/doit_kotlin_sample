@@ -20,8 +20,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         binding.btNext.setOnClickListener(this)
         binding.btNextFragment.setOnClickListener(this)
         binding.btNextRecyclerview.setOnClickListener(this)
-        binding.btNext.setOnClickListener(this)
-
+        binding.btNextViewpager.setOnClickListener(this)
 
 //        binding.btNext.setOnClickListener(object: View.OnClickListener{
 //            override fun onClick(v: View?) {
@@ -66,8 +65,12 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
                 val intent: Intent = Intent(this@MainActivity, RecyclerViewActivity::class.java)
                 startActivity(intent)
             }
+
+            R.id.bt_next_viewpager -> {
+                Log.d(TAG, "onClick - bt_next_viewpager")
+                val intent: Intent = Intent(this@MainActivity, ViewpagerActivity::class.java)
+                startActivity(intent)
+            }
         }
     }
-
-
 }

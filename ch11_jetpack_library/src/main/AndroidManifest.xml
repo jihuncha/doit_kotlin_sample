@@ -10,9 +10,11 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.My_doit_kotlin_sample">
         <activity
-            android:name=".RecyclerViewActivity"
+            android:name=".ViewpagerActivity"
             android:exported="true" />
-        <!-- up 버튼 정의 : parentActivityName -->
+        <activity
+            android:name=".RecyclerViewActivity"
+            android:exported="true" /> <!-- up 버튼 정의 : parentActivityName -->
         <!-- android:parentActivityName=".MainActivity" -->
         <activity
             android:name=".ToolbarActionbarActivity"

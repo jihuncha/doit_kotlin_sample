@@ -20,6 +20,7 @@ import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.huni.ch11_jetpack_library.databinding.ActivityRecyclerViewBinding
+import com.huni.ch11_jetpack_library.databinding.ActivityViewpagerBinding
 import com.huni.ch11_jetpack_library.databinding.RecyclerviewItemBinding
 
 
