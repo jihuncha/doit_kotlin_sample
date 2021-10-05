@@ -12,15 +12,11 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.LinearLayout
 import androidx.core.content.res.ResourcesCompat
 import androidx.core.view.ViewCompat
-import androidx.recyclerview.widget.DividerItemDecoration
-import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.huni.ch11_jetpack_library.databinding.ActivityRecyclerViewBinding
-import com.huni.ch11_jetpack_library.databinding.ActivityViewpagerBinding
 import com.huni.ch11_jetpack_library.databinding.RecyclerviewItemBinding
 
 
@@ -109,7 +105,7 @@ class MyDecoration(val context: Context): RecyclerView.ItemDecoration() {
 
     override fun onDraw(c: Canvas, parent: RecyclerView, state: RecyclerView.State) {
         super.onDraw(c, parent, state)
-        c.drawBitmap(BitmapFactory.decodeResource(context.resources, R.drawable.kbo), 0f, 0f, null)
+        c.drawBitmap(BitmapFactory.decodeResource(context.resources, R.drawable.kbo_sample), 0f, 0f, null)
     }
 
     override fun onDrawOver(c: Canvas, parent: RecyclerView, state: RecyclerView.State) {
@@ -125,7 +121,7 @@ class MyDecoration(val context: Context): RecyclerView.ItemDecoration() {
         val drWidth = dr?.intrinsicWidth
         val drheight = dr?.intrinsicHeight
 
-        //이미지가 그려질 위치 계싼
+        //이미지가 그려질 위치 계산
         val left = (width / 2) - drWidth?.div(2) as Int
         val top = (height / 2) - drheight?.div(2) as Int
 

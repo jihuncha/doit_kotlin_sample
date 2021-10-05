@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.util.Log
 import android.view.View
 import com.huni.ch11_jetpack_library.databinding.ActivityMainBinding
+import com.huni.project.ProjectActivity
 
 class MainActivity : AppCompatActivity(), View.OnClickListener {
     val TAG : String = MainActivity::class.java.simpleName
@@ -21,6 +22,9 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         binding.btNextFragment.setOnClickListener(this)
         binding.btNextRecyclerview.setOnClickListener(this)
         binding.btNextViewpager.setOnClickListener(this)
+
+        binding.tvHelloWorld.setOnClickListener(this)
+        binding.btProject.setOnClickListener(this)
 
 //        binding.btNext.setOnClickListener(object: View.OnClickListener{
 //            override fun onClick(v: View?) {
@@ -69,6 +73,18 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
             R.id.bt_next_viewpager -> {
                 Log.d(TAG, "onClick - bt_next_viewpager")
                 val intent: Intent = Intent(this@MainActivity, ViewpagerActivity::class.java)
+                startActivity(intent)
+            }
+
+            R.id.tv_hello_world -> {
+                Log.d(TAG, "onClick - tv_hello_world")
+                val intent: Intent = Intent(this@MainActivity, DrawerActivity::class.java)
+                startActivity(intent)
+            }
+
+            R.id.bt_project -> {
+                Log.d(TAG, "onClick - bt_project")
+                val intent: Intent = Intent(this@MainActivity, ProjectActivity::class.java)
                 startActivity(intent)
             }
         }

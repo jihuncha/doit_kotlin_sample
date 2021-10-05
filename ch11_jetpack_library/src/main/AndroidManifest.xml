@@ -10,6 +10,13 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.My_doit_kotlin_sample">
         <activity
+            android:name="com.huni.project.ProjectActivity"
+            android:exported="true"
+            android:theme="@style/Theme.TestTheme2"/>
+        <activity
+            android:name=".DrawerActivity"
+            android:exported="true" />
+        <activity
             android:name=".ViewpagerActivity"
             android:exported="true" />
         <activity

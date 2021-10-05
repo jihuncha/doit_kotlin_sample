@@ -36,7 +36,7 @@ class FragmentActivity : AppCompatActivity() {
     }
 }
 
-class OneFragment: Fragment() {
+open class OneFragment: Fragment() {
     lateinit var binding: FragmentViewBinding
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -51,3 +51,6 @@ class OneFragment: Fragment() {
         super.onDestroyView()
     }
 }
+
+class TwoFragment: OneFragment() {}
+class ThreeFragment: OneFragment() {}
