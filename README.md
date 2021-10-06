@@ -1,8 +1,10 @@
 ### doit_kotlin_sample
+    1. 안드로이드의 기본적인 내용을 코틀린 사용하여 구현 및 실습
 
-#### 2021.09.23
-1. 책을 위한 환경 설정
-2. .gitignore 참고..
+#### Begin
+
+* .gitignore 
+
 ~~~
 \.idea/
 \.gradle/
@@ -10,10 +12,8 @@
 \app/build/
 \local.properties
 ~~~
-3. 모듈 단위로 분할 커밋 진행
 
-
-#### 2021.09.24 ~ 2021.09.26
+* 모듈 단위로 분할하여 진행
 
 #### ch9_resource
     - 가로/세로 전환에 대한 대응 (layout 폴더 참고)
@@ -32,12 +32,13 @@
   - 원력 입력 : remoteInput 사용
   - 프로그래스 : builder.setProgress 이용
   - 알림 스타일 : 큰 이미지 / 긴 텍스트 / 상자 / 메시지 
+    
+#### ch11 - jetpack1. Actionbar
 
-#### 2021.10.01 ~ 2021.10.06
-3. ch11 - jetpack1. Actionbar
+   * ActionBar
         * 화면 위쪽에 타이틀 문자열이 출력되는 영역  
    
-   3-2. Toolbar
+   * Toolbar
         * Actionbar 와 동작은 비슷하나, 개발자가 직접 제어하는 View
    
-   3-3. Fragment
+   * Fragment
