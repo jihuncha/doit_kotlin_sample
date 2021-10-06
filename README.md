@@ -17,13 +17,17 @@
 
 * 모듈 단위로 분할하여 진행
 
+<hr>
+
 #### Resource
 
 * 가로/세로 전환에 대한 대응 (layout 폴더 참고)
 
+<hr>
+
 #### Dialog and Notification
     
-[참고](ch10_notification/src/main/java/com/huni/engineer/ch10_notification/DialogTestActivity.kt)
+[SourceCode](ch10_notification/src/main/java/com/huni/engineer/ch10_notification/DialogTestActivity.kt)
   
 * api 30 이후 Toast 기능
 * datepicker
@@ -35,6 +39,8 @@
   - 원력 입력 : remoteInput 사용
   - 프로그래스 : builder.setProgress 이용
   - 알림 스타일 : 큰 이미지 / 긴 텍스트 / 상자 / 메시지 
+
+<hr>
     
 #### Jetpack
 
@@ -45,5 +51,7 @@
         * Actionbar 와 동작은 비슷하나, 개발자가 직접 제어하는 View
    
    * Fragment
+
+<hr>
 
 #### Material Design
