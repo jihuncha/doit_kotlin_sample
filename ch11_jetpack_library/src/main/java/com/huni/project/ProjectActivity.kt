@@ -51,9 +51,10 @@ class ProjectActivity : AppCompatActivity() {
         inflater.inflate(R.menu.menu_project, menu)
 
         val menuItem = menu?.findItem(R.id.menu_search)
-        val searchView = menuItem?.actionView as SearchView
+        //TODO SearchView에 ?붙여줘야하네..
+        val searchView = menuItem?.actionView as SearchView?
 
-        searchView.setOnQueryTextListener(object: SearchView.OnQueryTextListener{
+        searchView?.setOnQueryTextListener(object: SearchView.OnQueryTextListener{
             override fun onQueryTextSubmit(query: String?): Boolean {
                 TODO("Not yet implemented")
                 return true

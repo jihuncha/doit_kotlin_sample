@@ -209,9 +209,6 @@ class DialogTestActivity : AppCompatActivity() {
             Log.d(TAG, "postDelay!!")
             manager.cancel(11)}, 5000)
     }
-
-
-
 }
 
 
