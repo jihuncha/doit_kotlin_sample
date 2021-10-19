@@ -17,7 +17,7 @@ class MainActivity : AppCompatActivity() {
 
         binding.tvGoNext.setOnClickListener(object: View.OnClickListener{
             override fun onClick(v: View?) {
-                //action 을 manifest에 지정함 
+                //action 을 manifest에 지정함
 //                val intent = Intent("ACTION_EDIT", Uri.parse("http://www.google.com"))
 
                 //좌표값 누르면 선택토록 나온다 -> 암시적 intent
@@ -27,8 +27,5 @@ class MainActivity : AppCompatActivity() {
                 startActivity(intent)
             }
         })
-
-
-
     }
 }
