@@ -15,7 +15,7 @@ class MainActivity : AppCompatActivity() {
         val binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        binding.tvGoNext.setOnClickListener(object: View.OnClickListener{
+        binding.tvGoIntentFilter.setOnClickListener(object: View.OnClickListener{
             override fun onClick(v: View?) {
                 //action 을 manifest에 지정함
 //                val intent = Intent("ACTION_EDIT", Uri.parse("http://www.google.com"))
@@ -27,5 +27,10 @@ class MainActivity : AppCompatActivity() {
                 startActivity(intent)
             }
         })
+
+        binding.tvGoBundleTest.setOnClickListener {
+            val intent = Intent(MainActivity@this, BundleTestActivity::class.java)
+            startActivity(intent)
+        }
     }
 }
