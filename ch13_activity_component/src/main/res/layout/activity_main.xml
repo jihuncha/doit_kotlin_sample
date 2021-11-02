@@ -25,7 +25,7 @@
         android:layout_height="wrap_content"
         android:background="@color/purple_500"
         android:padding="10dp"
-        android:text="bundleTest"
+        android:text="bundleAndKeyboardTest"
         android:textColor="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
