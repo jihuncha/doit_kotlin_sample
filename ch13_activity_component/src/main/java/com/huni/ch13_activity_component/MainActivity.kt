@@ -32,5 +32,10 @@ class MainActivity : AppCompatActivity() {
             val intent = Intent(MainActivity@this, BundleTestActivity::class.java)
             startActivity(intent)
         }
+
+        binding.btCoroutine.setOnClickListener{
+            val intent = Intent(MainActivity@this, CoroutineTestActivity::class.java)
+            startActivity(intent)
+        }
     }
 }
