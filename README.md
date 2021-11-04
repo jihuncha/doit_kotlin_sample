@@ -60,12 +60,10 @@
 #### Activity Component
 3. 엑티비티 제어
 
-   * 3-1. 입력 매니저 
-
+   * 3-1. 입력 매니저
+     
      * InputMethodManager (SoftKeyboard 관련)
-
-       
-
+    
    * 3-2. 입력 모드 - Manifest 의 windowSoftInputMode 사용
 
      * adjustPan: 키보드가 올라올 때 입력 에디트 테그슽에 맞춰서 화면을 위로 올림
@@ -76,7 +74,8 @@
      * stateUnspecified
 
    * 3-3. 방향과 전체 화면 설정
-        * 방향 - screenOrientation 사용
+     
+     * 방향 - screenOrientation 사용
      * 전체화면 - NoActionBar 사용
      * API 30 이상의 경우 : WindowInsetsController를 사용해야함
 
@@ -92,32 +91,24 @@
    * 3-5. ANR and Coroutine
 
      * ANR (Activity Not Response) : 액티비티가 응답하지 않는 오류
-
-     * 액티비티를 실행한 메인 스레드 이외에 실행 흐름을 따로 만들어서 시간이 오래 걸리는 작업을 담당하게 해야한다. 
-
+     * 액티비티를 실행한 메인 스레드 이외에 실행 흐름을 따로 만들어서 시간이 오래 걸리는 작업을 담당하게 해야한다.
      * 그러나 이 방법으로는 화면 변경이 안됨. 화면 변경은 메인스레드만 할 수 있음
-
      * 코루틴의 사용
 
        * Coroutine (비동기 경량 스레드)
-
-       * 특징 
-
+         
+       * 특징
          * 경량 
          * 메모리 누수가 적음
          * 취소 등 다양한 기능 제공
          * 많은 제트팩 라이브러리에 적용
-
-         
-
+    
        * Scope
-
          1. Dispatchers.Main : 액티비티의 메인 스레드에서 코루틴 생성
          2. Dispatchers.IO : 파일에 읽거나 쓰기 또는 네트워크 작업에 최적화
          3. Dispatchers.Default : CPU를 많이 사용하는 작업을 백그라운드에서 실행
-
+           
        * Channel
-
          * 코루틴의 값을 전달받을 수 있는 방법을 제공 (Queue 알고리즘과 비슷)
 
          
