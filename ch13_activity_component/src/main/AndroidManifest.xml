@@ -10,6 +10,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.My_doit_kotlin_sample">
         <activity
+            android:name=".AddDetailActivity"
+            android:exported="false" />
+        <activity
+            android:name=".AddActivity"
+            android:exported="false" />
+        <activity
             android:name=".CoroutineTestActivity"
             android:exported="false" />
         <activity
