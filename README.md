@@ -56,6 +56,7 @@
 
 #### Material Design
 
+<hr>
 
 #### Activity Component
 3. 엑티비티 제어
@@ -63,7 +64,7 @@
    * 3-1. 입력 매니저
      
      * InputMethodManager (SoftKeyboard 관련)
-    
+   
    * 3-2. 입력 모드 - Manifest 의 windowSoftInputMode 사용
 
      * adjustPan: 키보드가 올라올 때 입력 에디트 테그슽에 맞춰서 화면을 위로 올림
@@ -102,15 +103,36 @@
          * 메모리 누수가 적음
          * 취소 등 다양한 기능 제공
          * 많은 제트팩 라이브러리에 적용
-    
+   
        * Scope
          1. Dispatchers.Main : 액티비티의 메인 스레드에서 코루틴 생성
          2. Dispatchers.IO : 파일에 읽거나 쓰기 또는 네트워크 작업에 최적화
          3. Dispatchers.Default : CPU를 많이 사용하는 작업을 백그라운드에서 실행
-           
+         
        * Channel
          * 코루틴의 값을 전달받을 수 있는 방법을 제공 (Queue 알고리즘과 비슷)
 
-         
+<hr>
 
-       
+#### Broadcast Receiver
+
+* 이벤트 모델로 실행되는 컴포넌트 (사용자 이벤트가 아닌 시스템의 특정한 상황) 
+  * ex) 부팅이 완료됨 
+* 만들기
+  1. 명시적 - 클래스명만 등록
+  2. 암시적 - intent-filter에 선언필요
+* 등록과 해제
+  * registerReceiver()
+  * unregisterReciver()
+
+* 부팅완료 
+  * BOOT_COMPLETED 사용
+* 화면끔 / 킴
+  * Intent.ACTION_SCREEN_OFF
+  * Intent.ACTION_SCREEN_ON
+* 배터리상태
+  * BATTERY_LOW - 베터리 낮은 상태로 변경
+  * BATTERY_OKAY - 정상상태로 변경
+  * BATTERY_CHANGED - 충전상태로 변경
+  * ACTION_POWER_CONNECTED - 전원이 공급되기 시작한 순간
+  * ACTION_POWER_DISCONNECTED - 전원이 공급끊은 순간
