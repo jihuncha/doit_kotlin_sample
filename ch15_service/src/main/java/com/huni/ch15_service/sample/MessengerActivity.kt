@@ -14,7 +14,7 @@ class MessengerActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         binding.btMessengerTest.setOnClickListener {
-            
+
         }
     }
 }
