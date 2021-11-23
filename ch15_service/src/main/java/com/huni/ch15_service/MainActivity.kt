@@ -10,12 +10,16 @@ import android.os.IBinder
 import android.util.Log
 import android.view.View
 import com.huni.ch15_service.databinding.ActivityMainBinding
+import com.huni.ch15_service.sample.MessengerActivity
 
 class MainActivity : AppCompatActivity(), View.OnClickListener {
-    lateinit var binding: ActivityMainBinding
+    private lateinit var binding: ActivityMainBinding
+
+    private lateinit var serviceConnection: ServiceConnection
 
     companion object {
         val TAG: String = MainActivity::class.java.simpleName
+
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -23,7 +27,21 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
 
         binding = ActivityMainBinding.inflate(layoutInflater)
         binding.btSample1.setOnClickListener(this)
+        binding.btSample2.setOnClickListener(this)
         setContentView(binding.root)
+
+        serviceConnection = object : ServiceConnection {
+            override fun onServiceConnected(p0: ComponentName?, p1: IBinder?) {
+                //서비스 구동시 자동 호출
+                //MyService 에서 반환받아 함수 사용 가능
+                val binder = p1 as MyBinder
+                Log.d(TAG, "test - ${binder.funB(5)}")
+            }
+
+            override fun onServiceDisconnected(p0: ComponentName?) {
+                //서비스 소멸시 자동 호출
+            }
+        }
 
     }
 
@@ -50,22 +68,37 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
 //                val connection: ServiceConnection = object : ServiceConnection {
 //                    override fun onServiceConnected(p0: ComponentName?, p1: IBinder?) {
 //                        //서비스 구동시 자동 호출
+//                        //MyService 에서 반환받아 함수 사용 가능
+//                        val binder = p1 as MyBinder
+//                        Log.d(TAG, "test - ${binder.funB(5)}")
 //                    }
 //
 //                    override fun onServiceDisconnected(p0: ComponentName?) {
 //                        //서비스 소멸시 자동 호출
 //                    }
 //                }
-//
-//                val intent = Intent(this, MyService::class.java)
-//                //intent, connection, flag
-//                bindService(intent, connection, Context.BIND_AUTO_CREATE)
-//
-//                //종료
+
+                val intent = Intent(this, MyService::class.java)
+                //intent, connection, flag
+                bindService(intent, serviceConnection, Context.BIND_AUTO_CREATE)
+
+                //종료
 //                unbindService(connection)
 
-
             }
+
+            binding.btSample2.id -> {
+                val intent:Intent = Intent(this@MainActivity, MessengerActivity::class.java)
+                startActivity(intent)
+            }
+
+
         }
+    }
+
+    override fun onStop() {
+        super.onStop()
+
+        unbindService(serviceConnection)
     }
 }

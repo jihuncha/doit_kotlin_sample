@@ -10,6 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.My_doit_kotlin_sample">
         <activity
+            android:name=".sample.MessengerActivity"
+            android:exported="false" />
+        <activity
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>
@@ -19,11 +22,15 @@
             </intent-filter>
         </activity>
 
-        <service android:name=".MyService"
+        <service
+            android:name=".MyService"
             android:enabled="true"
-            android:exported="true">
+            android:exported="true"></service>
 
-        </service>
+        <service
+            android:name=".sample.MessengerTestService"
+            android:enabled="true"
+            android:exported="true"></service>
     </application>
 
 </manifest>

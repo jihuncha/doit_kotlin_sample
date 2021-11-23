@@ -188,5 +188,16 @@
 * 서비스 생명주기
   * https://developer.android.com/guide/components/services?hl=ko
   * ![서비스 생명 주기](ch15_service/src/main/java/com/huni/temp/img/service_lifecycle.PNG)
+
+* 특징
+  1. startService
+    * 백그라운드 작업이 필요하지만, 엑티비티와 데이터를 주고받을 일이 없는 등 서로 관련이 없는 경우
   
+  2. bindService
+    * 엑티비티와 서비스가 상호작용해야하는 경우
+      1. IBinder
+        IBinder interface 사용하여 fun 구현하여, Activity에서 connection 생겼을때 사용 가능함.
+         
+      2. Messenger 바인딩 (프로세스 간 통신을 할때도 사용 가능)       
+
 
