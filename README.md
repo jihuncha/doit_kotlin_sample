@@ -136,3 +136,57 @@
   * BATTERY_CHANGED - 충전상태로 변경
   * ACTION_POWER_CONNECTED - 전원이 공급되기 시작한 순간
   * ACTION_POWER_DISCONNECTED - 전원이 공급끊은 순간
+
+
+<hr>
+
+#### Service
+
+* 백그라운드 작업을 목적으로 하는 컴포넌트
+* 서비스를 실행하는 Intent 함수는 2가지 (startService / bindService)
+
+* startService
+  * 해당 서비스를 인텐트에 담아서 실행 (명시적으로)
+  
+~~~kotlin
+                //startService
+                val intent = Intent(this, MyService::class.java)
+                startService(intent)
+
+                //외부 앱의 경우 암시적 인텐트 사용필요 -> 패키지 name 전달
+                val intent = Intent("ACTION_OUTER_SERVICE")
+                intent.setPackage("com.example.test_outer")
+                startService(intent)
+
+                //stopService를 통해 종료
+                val intent = Intent(this, MyService::class.java)
+                stopService(intent)
+~~~
+
+* bindService
+  * ServiceConnection 인터페이스를 구현한 객체가 필요
+  
+~~~kotlin
+                val connection: ServiceConnection = object : ServiceConnection {
+                    override fun onServiceConnected(p0: ComponentName?, p1: IBinder?) {
+                        //서비스 구동시 자동 호출
+                    }
+
+                    override fun onServiceDisconnected(p0: ComponentName?) {
+                        //서비스 소멸시 자동 호출
+                    }
+                }
+
+                val intent = Intent(this, MyService::class.java)
+                //intent, connection, flag
+                bindService(intent, connection, Context.BIND_AUTO_CREATE)
+
+                //종료
+                unbindService(connection)
+~~~
+
+* 서비스 생명주기
+  * https://developer.android.com/guide/components/services?hl=ko
+  * ![서비스 생명 주기](ch15_service/src/main/java/com/huni/temp/img/service_lifecycle.PNG)
+  
+
