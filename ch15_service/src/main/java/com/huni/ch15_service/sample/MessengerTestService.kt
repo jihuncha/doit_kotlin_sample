@@ -37,7 +37,7 @@ class MessengerTestService : Service() {
 
     override fun onBind(p0: Intent?): IBinder? {
         Log.d(TAG, "onBind")
-        //onbind반환값으로 messenger 생성하여 binder속성을 반환한다.
+        //onBind 반환값으로 messenger 생성하여 binder속성을 반환한다.
         messenger = Messenger(IncomingHandler(this))
         return messenger.binder
     }
