@@ -84,7 +84,6 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
 
                 //종료
 //                unbindService(connection)
-
             }
 
             binding.btSample2.id -> {
@@ -99,6 +98,13 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
     override fun onStop() {
         super.onStop()
 
-        unbindService(serviceConnection)
+
+        //btn 1으로 실행한경우
+        try {
+            unbindService(serviceConnection)
+        } catch (e:Exception) {
+            Log.e(TAG, "e - $e")
+        }
+
     }
 }

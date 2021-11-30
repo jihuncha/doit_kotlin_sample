@@ -198,6 +198,19 @@
       1. IBinder
         IBinder interface 사용하여 fun 구현하여, Activity에서 connection 생겼을때 사용 가능함.
          
-      2. Messenger 바인딩 (프로세스 간 통신을 할때도 사용 가능)       
+      2. Messenger 바인딩 (프로세스 간 통신을 할때도 사용 가능)
+        2-1. 내부앱 연동
+~~~kotlin
+//onbind반환값으로 messenger 생성하여 binder속성을 반환한다.
+messenger = Messenger(IncomingHandler(this))
+return messenger.binder
+~~~
+        2-2. 외부앱
+          - intent-filter로 외부앱 연동하도록 선언해야한다.
+          - queries로 연동하고자하는 앱의 패키지명을 지정해야한다.
+          - 프로세스 간 통신은 parcelable 이나 bundle을 사용해야한다.
+
+
+      
 
 

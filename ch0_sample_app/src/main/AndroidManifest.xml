@@ -1,11 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.huni.ch15_service">
-
-    <!-- messenger 외부앱 연동 - package 정보 -->
-    <queries>
-        <package android:name="com.huni.ch0_sample_app"/>
-    </queries>
+    package="com.huni.ch0_sample_app">
 
     <application
         android:allowBackup="true"
@@ -15,10 +10,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.My_doit_kotlin_sample">
         <activity
-            android:name=".sample.MessengerActivity"
-            android:exported="false" />
-        <activity
-            android:name=".MainActivity"
+            android:name=".MainActivitySample"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -28,16 +20,9 @@
         </activity>
 
         <service
-            android:name=".MyService"
+            android:name="MessengerTestSecondService"
             android:enabled="true"
-            android:exported="true"></service>
-
-        <service
-            android:name=".sample.MessengerTestService"
-            android:enabled="true"
-            android:process=":remote"
             android:exported="true">
-
             <!-- messenger 외부앱 연동-->
             <intent-filter>
                 <action android:name="ACTION_OUTER_SERVICE"/>
