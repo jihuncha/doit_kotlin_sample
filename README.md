@@ -276,8 +276,9 @@
     * 잡 서비스: 백그라운드에서 처리할 작업을 구현한 서비스
     * 잡 인포: 잡 서비스 정보와 실행될 조건을 지정합니다.
     * 잡 스케쥴러: 잡 인포를 시스템에 등록합니다.
+  * JobScheduleActivity 참고. [JobService](ch15_service/src/main/java/com/huni/ch15_service/sample/jobschedule/JobScheduleActivity.kt)
 
 
-​      
+  
 
 

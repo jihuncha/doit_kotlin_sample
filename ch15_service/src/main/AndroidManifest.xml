@@ -44,6 +44,14 @@
                 <action android:name="ACTION_OUTER_SERVICE" />
             </intent-filter>
         </service>
+
+        <!-- 스케쥴러 테스트 -->
+        <service android:name=".sample.jobschedule.MyJobService"
+            android:enabled="true"
+            android:exported="true"
+            android:permission="android.permission.BIND_JOB_SERVICE">
+        </service>
+
     </application>
 
 </manifest>

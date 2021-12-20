@@ -10,6 +10,7 @@ import android.os.IBinder
 import android.util.Log
 import android.view.View
 import com.huni.ch15_service.databinding.ActivityMainBinding
+import com.huni.ch15_service.sample.jobschedule.JobScheduleActivity
 import com.huni.ch15_service.sample.messenger.MessengerActivity
 
 class MainActivity : AppCompatActivity(), View.OnClickListener {
@@ -27,6 +28,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         binding = ActivityMainBinding.inflate(layoutInflater)
         binding.btSample1.setOnClickListener(this)
         binding.btSample2.setOnClickListener(this)
+        binding.btSample3.setOnClickListener(this)
         setContentView(binding.root)
 
         serviceConnection = object : ServiceConnection {
@@ -87,6 +89,11 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
 
             binding.btSample2.id -> {
                 val intent:Intent = Intent(this@MainActivity, MessengerActivity::class.java)
+                startActivity(intent)
+            }
+
+            binding.btSample3.id -> {
+                val intent:Intent = Intent(this@MainActivity, JobScheduleActivity::class.java)
                 startActivity(intent)
             }
 
