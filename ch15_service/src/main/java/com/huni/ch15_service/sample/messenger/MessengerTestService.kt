@@ -1,4 +1,4 @@
-package com.huni.ch15_service.sample
+package com.huni.ch15_service.sample.messenger
 
 import android.app.Service
 import android.content.Context

@@ -10,7 +10,7 @@ import android.os.IBinder
 import android.util.Log
 import android.view.View
 import com.huni.ch15_service.databinding.ActivityMainBinding
-import com.huni.ch15_service.sample.MessengerActivity
+import com.huni.ch15_service.sample.messenger.MessengerActivity
 
 class MainActivity : AppCompatActivity(), View.OnClickListener {
     private lateinit var binding: ActivityMainBinding
@@ -19,7 +19,6 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
 
     companion object {
         val TAG: String = MainActivity::class.java.simpleName
-
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -35,7 +34,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
                 //서비스 구동시 자동 호출
                 //MyService 에서 반환받아 함수 사용 가능
                 val binder = p1 as MyBinder
-                Log.d(TAG, "test - ${binder.funB(5)}")
+                Log.d(TAG, "onServiceConnected - ${binder.funB(5)}")
             }
 
             override fun onServiceDisconnected(p0: ComponentName?) {
@@ -97,7 +96,6 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
 
     override fun onStop() {
         super.onStop()
-
 
         //btn 1으로 실행한경우
         try {

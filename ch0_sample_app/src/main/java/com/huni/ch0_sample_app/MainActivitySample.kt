@@ -25,7 +25,7 @@ class MainActivitySample : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        Log.d(TAG, "sample - onCreate")
+        Log.d(TAG, "MainActivitySample - onCreate")
 
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)

@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.huni.ch15_service">
-
+    package="com.huni.ch15_service" >
     <!-- messenger 외부앱 연동 - package 정보 -->
     <queries>
-        <package android:name="com.huni.ch0_sample_app"/>
+        <package android:name="com.huni.ch0_sample_app" />
     </queries>
 
     <application
@@ -13,13 +12,16 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.My_doit_kotlin_sample">
+        android:theme="@style/Theme.My_doit_kotlin_sample" >
         <activity
-            android:name=".sample.MessengerActivity"
+            android:name=".sample.jobschedule.JobScheduleActivity"
+            android:exported="false" />
+        <activity
+            android:name=".sample.messenger.MessengerActivity"
             android:exported="false" />
         <activity
             android:name=".MainActivity"
-            android:exported="true">
+            android:exported="true" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -30,19 +32,17 @@
         <service
             android:name=".MyService"
             android:enabled="true"
-            android:exported="true"></service>
-
+            android:exported="true" />
         <service
-            android:name=".sample.MessengerTestService"
+            android:name=".sample.messenger.MessengerTestService"
             android:enabled="true"
-            android:process=":remote"
-            android:exported="true">
+            android:exported="true"
+            android:process=":remote" >
 
-            <!-- messenger 외부앱 연동-->
+            <!-- messenger 외부앱 연동 -->
             <intent-filter>
-                <action android:name="ACTION_OUTER_SERVICE"/>
+                <action android:name="ACTION_OUTER_SERVICE" />
             </intent-filter>
-
         </service>
     </application>
 
