@@ -1,5 +1,8 @@
 package com.huni.ch15_service_project
 
+import android.annotation.TargetApi
+import android.app.job.JobInfo
+import android.app.job.JobScheduler
 import android.content.ComponentName
 import android.content.Context
 import android.content.Intent
@@ -7,8 +10,10 @@ import android.content.ServiceConnection
 import android.os.*
 import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.getSystemService
 import com.huni.ch15_outer.MyAIDLInterface
 import com.huni.ch15_service_project.databinding.ActivityMainBinding
+import com.huni.ch15_service_project.service.MyJobService
 import kotlinx.coroutines.*
 
 class MainActivity : AppCompatActivity() {
@@ -41,7 +46,7 @@ class MainActivity : AppCompatActivity() {
         onCreateAIDLService()
 
         //jobscheduler......................
-//        onCreateJobScheduler()
+        onCreateJobScheduler()
     }
 
     //destroy 에서 호출하면..? 백그라운드에서 돌아가고있을듯?
@@ -224,5 +229,20 @@ class MainActivity : AppCompatActivity() {
         Log.d(TAG, "onStopAIDLService")
 
         unbindService(aidlConnection)
+    }
+
+    //JobScheduler
+    @TargetApi(Build.VERSION_CODES.LOLLIPOP)
+    private fun onCreateJobScheduler(){
+        Log.d(TAG, "onCreateJobScheduler")
+
+        var jobScheduler: JobScheduler? = getSystemService<JobScheduler>()
+
+        val builder = JobInfo.Builder(1, ComponentName(this, MyJobService::class.java))
+        builder.setRequiredNetworkType(JobInfo.NETWORK_TYPE_UNMETERED)
+
+        val jobInfo = builder.build()
+
+        jobScheduler!!.schedule(jobInfo)
     }
 }

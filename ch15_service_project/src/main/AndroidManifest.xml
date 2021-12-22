@@ -3,7 +3,7 @@
     package="com.huni.ch15_service_project">
 
     <queries>
-        <package android:name="com.huni.ch15_outer"/>
+        <package android:name="com.huni.ch15_outer" />
     </queries>
 
     <application
@@ -13,6 +13,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.My_doit_kotlin_sample">
+
         <activity
             android:name=".MainActivity"
             android:exported="true">
@@ -22,6 +23,12 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <service
+            android:name=".service.MyJobService"
+            android:enabled="true"
+            android:exported="true"
+            android:permission="android.permission.BIND_JOB_SERVICE"/>
     </application>
 
 </manifest>
