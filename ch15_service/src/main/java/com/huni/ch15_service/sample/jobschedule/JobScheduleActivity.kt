@@ -14,7 +14,6 @@ class JobScheduleActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityJobScheduleBinding
 
-
     companion object {
         val TAG : String = JobScheduleActivity::class.java.simpleName
     }

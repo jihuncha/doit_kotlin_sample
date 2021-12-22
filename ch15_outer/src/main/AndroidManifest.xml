@@ -9,11 +9,6 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.My_doit_kotlin_sample">
-        <service
-            android:name=".service.MyMessengerService"
-            android:enabled="true"
-            android:exported="true"></service>
-
         <activity
             android:name=".MainActivity"
             android:exported="true">
@@ -34,9 +29,13 @@
         </service>
 
         <service
-            android:name="com.huni.ch15_outer.service.MyAIDLService"
+            android:name=".service.MyAIDLService"
             android:enabled="true"
-            android:exported="true"></service>
+            android:exported="true">
+            <intent-filter>
+                <action android:name="ACTION_SERVICE_AIDL"/>
+            </intent-filter>
+        </service>
     </application>
 
 </manifest>

@@ -42,12 +42,14 @@ class MyMessengerService : Service() {
                     //서비스에 연결되자마자 전달되는 메시지
                     replyMessenger = msg.replyTo
                     if (!player.isPlaying) {
+                        Log.d(TAG, "is not playing")
                         player = MediaPlayer.create(this@MyMessengerService, R.raw.music)
                         try {
                             //지속 시간 전송
                             val replyMsg = Message()
                             replyMsg.what = 10
                             val replyBundle = Bundle()
+                            replyBundle.putInt("duration", player.duration)
                             replyMsg.obj = replyBundle
                             replyMessenger.send(replyMsg)
                             //음악 재생
@@ -61,7 +63,9 @@ class MyMessengerService : Service() {
 
                 20 -> {
                     //멈춤 메시지
-                    if (player.isPlaying) player.stop()
+                    if (player.isPlaying) {
+                        player.stop()
+                    }
                 }
 
                 else -> super.handleMessage(msg)
