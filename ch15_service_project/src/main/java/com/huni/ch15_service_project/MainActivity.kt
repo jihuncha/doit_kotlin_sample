@@ -7,6 +7,7 @@ import android.content.ServiceConnection
 import android.os.*
 import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
+import com.huni.ch15_outer.MyAIDLInterface
 import com.huni.ch15_service_project.databinding.ActivityMainBinding
 import kotlinx.coroutines.*
 
@@ -22,6 +23,10 @@ class MainActivity : AppCompatActivity() {
     lateinit var replyMessenger: Messenger
     var messengerJob: Job? = null
 
+    //aidl...........
+    var aidlService: MyAIDLInterface? = null
+    var aidlJob: Job? = null
+
     private var connectionMode: String = "none"
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -33,22 +38,23 @@ class MainActivity : AppCompatActivity() {
         onCreateMessengerService()
 
         //aidl................
-//        onCreateAIDLService()
+        onCreateAIDLService()
 
         //jobscheduler......................
 //        onCreateJobScheduler()
     }
 
+    //destroy 에서 호출하면..? 백그라운드에서 돌아가고있을듯?
     override fun onStop() {
         Log.d(TAG, "onStop")
 
         super.onStop()
-        if(connectionMode === "messenger"){
+        if (connectionMode === "messenger") {
             onStopMessengerService()
-        }else if(connectionMode === "aidl"){
-//            onStopAIDLService()
+        } else if (connectionMode === "aidl") {
+            onStopAIDLService()
         }
-        connectionMode="none"
+        connectionMode = "none"
         changeViewEnable()
     }
 
@@ -116,10 +122,10 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    //Messenger Connection
+    //messenger connection....................
     val messengerConnection: ServiceConnection = object : ServiceConnection {
         override fun onServiceConnected(name: ComponentName?, service: IBinder?) {
-            Log.d(TAG, "onServiceConnected")
+            Log.d(TAG, "messengerConnection/onServiceConnected")
 
             messenger = Messenger(service)
 
@@ -132,7 +138,7 @@ class MainActivity : AppCompatActivity() {
         }
 
         override fun onServiceDisconnected(p0: ComponentName?) {
-            Log.d(TAG,"onServiceDisconnected")
+            Log.d(TAG, "messengerConnection/onServiceDisconnected")
         }
     }
 
@@ -170,5 +176,53 @@ class MainActivity : AppCompatActivity() {
         msg.what = 20
         messenger.send(msg)
         unbindService(messengerConnection)
+    }
+
+    //aidl connection .......................
+    val aidlConnection: ServiceConnection = object : ServiceConnection {
+        override fun onServiceConnected(name: ComponentName, service: IBinder) {
+            Log.d(TAG, "aidlConnection/onServiceConnected")
+
+            aidlService = MyAIDLInterface.Stub.asInterface(service)
+            aidlService!!.start()
+            binding.aidlProgress.max = aidlService!!.maxDuration
+            val backgroundScope = CoroutineScope(Dispatchers.Default + Job())
+            aidlJob = backgroundScope.launch {
+                while (binding.aidlProgress.progress < binding.aidlProgress.max) {
+                    delay(1000)
+                    binding.aidlProgress.incrementProgressBy(1000)
+                }
+            }
+            connectionMode = "aidl"
+            changeViewEnable()
+        }
+
+        override fun onServiceDisconnected(name: ComponentName) {
+            Log.d(TAG, "aidlConnection/onServiceDisconnected")
+            aidlService = null
+        }
+    }
+
+    private fun onCreateAIDLService() {
+        Log.d(TAG, "onCreateAIDLService")
+
+        binding.aidlPlay.setOnClickListener {
+            val intent = Intent("ACTION_SERVICE_AIDL")
+            intent.setPackage("com.huni.ch15_outer")
+            bindService(intent, aidlConnection, Context.BIND_AUTO_CREATE)
+        }
+        binding.aidlStop.setOnClickListener {
+            aidlService!!.stop()
+            unbindService(aidlConnection)
+            aidlJob?.cancel()
+            connectionMode = "none"
+            changeViewEnable()
+        }
+    }
+
+    private fun onStopAIDLService() {
+        Log.d(TAG, "onStopAIDLService")
+
+        unbindService(aidlConnection)
     }
 }

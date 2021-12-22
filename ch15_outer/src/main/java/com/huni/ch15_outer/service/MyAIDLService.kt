@@ -9,7 +9,6 @@ import com.huni.ch15_outer.MyAIDLInterface
 import com.huni.ch15_outer.R
 
 class MyAIDLService : Service() {
-
     companion object {
         val TAG: String = MyAIDLService::class.java.simpleName
     }
