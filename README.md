@@ -279,6 +279,24 @@
   * JobScheduleActivity 참고. [JobService](ch15_service/src/main/java/com/huni/ch15_service/sample/jobschedule/JobScheduleActivity.kt)
 
 
-  
+
+<hr>
+
+#### Content Provider
+
+* 앱끼리 데이터를 연동하는 컴포넌트
+* 외부 앱의 데이터는 기본적으로 접근이 불가능 (보안 문제)
+* 콘텐츠 프로바이더가 외부 앱에 허가 / 접근 등을 가능하게함
+
+
+
+* 특징
+  * 콘텐츠 프로바이더는 인텐트와 상관없이 시스템이 필요한 순간에 자동으로 생성해준다.
+  * 즉 query(), insert(), update(), delete() 함수만 호출해 주면 된다.
+
+
+
+
+
 
 

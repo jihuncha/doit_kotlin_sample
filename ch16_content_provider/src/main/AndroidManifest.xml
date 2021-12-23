@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.huni.ch16_content_provider">
+    <!-- 패키지 공개 설정 -->
+    <queries>
+        <!-- 둘 중에 하나만 선언하면 됨 -->
+        <!-- <provider android:authorities="com.huni.ch16_content_provider.test_provider"/> -->
+        <package android:name="com.huni.ch16_content_provider" />
+    </queries>
+
+    <!-- 연락처 -->
+    <uses-permission android:name="android.permission.READ_CONTACTS"/>
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.My_doit_kotlin_sample">
+        <activity
+            android:name=".ui.ContactActivity"
+            android:exported="false" />
+        <activity
+            android:name=".MainActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity> <!-- Content Provider 도 컴포넌트이므로 등록해줘야한다 -->
+        <!-- authorities : 외부에서 이 콘텐츠 프로바이더를 이용할때 식별값으로 사용한다. -->
+        <provider
+            android:name=".data.MyContentProvider"
+            android:authorities="com.huni.ch16_content_provider.test_provider"
+            android:enabled="true"
+            android:exported="true" />
+    </application>
+
+</manifest>
