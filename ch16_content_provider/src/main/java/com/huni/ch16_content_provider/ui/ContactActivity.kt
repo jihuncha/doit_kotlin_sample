@@ -48,6 +48,7 @@ class ContactActivity : AppCompatActivity() {
                     val phone = cursor?.getString(1)
 
                     Log.d(TAG, "name - $name and phone - $phone")
+                    Toast.makeText(baseContext, "name - $name and phone - $phone", Toast.LENGTH_SHORT).show()
                 }
             }
         }
