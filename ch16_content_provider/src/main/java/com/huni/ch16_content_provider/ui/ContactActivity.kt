@@ -6,9 +6,9 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.provider.ContactsContract
 import android.util.Log
-import androidx.activity.result.ActivityResultLauncher
+import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
-import com.huni.ch16_content_provider.R
+import androidx.core.app.ActivityCompat
 import com.huni.ch16_content_provider.databinding.ActivityContactBinding
 
 class ContactActivity : AppCompatActivity() {
@@ -18,29 +18,7 @@ class ContactActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityContactBinding
 
-
-    //    private val getActivityResult =
-//        registerForActivityResult(ActivityResultContracts.GetContent()) { result ->
-//                val cursor = contentResolver.query(
-//                    result,
-//                    arrayOf<String>(
-//                        ContactsContract.CommonDataKinds.Phone.DISPLAY_NAME,
-//                        ContactsContract.CommonDataKinds.Phone.NUMBER
-//                    ),
-//                    null,
-//                    null,
-//                    null
-//                )
-//
-//            Log.d(TAG, "cursor size - ${cursor?.count}")
-//
-//            if (cursor!!.moveToFirst()) {
-//                val name = cursor?.getString(0)
-//                val phone = cursor?.getString(1)
-//
-//                Log.d(TAG, "name - $name and phone - $phone")
-//            }
-
+    //연락처 가져오는 ActivityResult
     private val getActivityResult =
         registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { activityResult ->
             if (activityResult.resultCode == Activity.RESULT_OK) {
@@ -62,7 +40,7 @@ class ContactActivity : AppCompatActivity() {
                 )
 
                 //TODO 왜 특정단말(android 11)에서 계속 0이 나오지?? (android 9는 정상)
-                // 권한 허용을 해줘야함..!! .....
+                // 권한 허용을 해줘야함..!!
                 Log.d(TAG, "cursor size - ${cursor?.count}")
 
                 if (cursor!!.moveToFirst()) {
@@ -74,6 +52,24 @@ class ContactActivity : AppCompatActivity() {
             }
         }
 
+    //권한요청용
+    val requestPermissionLauncher =
+        registerForActivityResult(
+            ActivityResultContracts.RequestPermission()
+        ) { isGranted: Boolean ->
+            if (isGranted) {
+                //전화번호가 있는 사람
+                val intent =
+                    Intent(Intent.ACTION_PICK, ContactsContract.CommonDataKinds.Phone.CONTENT_URI)
+                getActivityResult.launch(intent)
+            } else if (ActivityCompat.shouldShowRequestPermissionRationale(this,  android.Manifest.permission.READ_CONTACTS)) { 
+                //이전에 거부한 경우
+                Toast.makeText(baseContext, "Permission Necessary!!", Toast.LENGTH_SHORT).show()
+            } else {
+                Toast.makeText(baseContext, "Go to Setting!!", Toast.LENGTH_SHORT).show()
+            }
+        }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -81,14 +77,9 @@ class ContactActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         binding.btShowContact.setOnClickListener {
-            //전화번호가 있는 사람
-            val intent =
-                Intent(Intent.ACTION_PICK, ContactsContract.CommonDataKinds.Phone.CONTENT_URI)
-            getActivityResult.launch(intent)
-
+            val permission = android.Manifest.permission.READ_CONTACTS
+            requestPermissionLauncher.launch(permission)
 //            getActivityResult.launch(ActivityResultContracts.PickContact().createIntent(baseContext, ContactsContract.CommonDataKinds.Phone.CONTENT_URI))
         }
     }
-
-
 }
