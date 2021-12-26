@@ -9,6 +9,7 @@ import android.view.View
 import com.huni.ch16_content_provider.data.MyContentProvider
 import com.huni.ch16_content_provider.databinding.ActivityMainBinding
 import com.huni.ch16_content_provider.ui.ContactActivity
+import com.huni.ch16_content_provider.ui.GalleryActivity
 
 class MainActivity : AppCompatActivity(), View.OnClickListener {
     companion object {
@@ -25,6 +26,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         setContentView(binding.root)
 
         binding.btFirst.setOnClickListener(this)
+        binding.btSecond.setOnClickListener(this)
 
         //시스템의 콘텐츠 프로바이더 사용
 //        contentProvider = MyContentProvider()
@@ -38,6 +40,13 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
                 Log.d(TAG, "btFirst/onClick!!")
 
                 val intent = Intent(this, ContactActivity::class.java)
+                startActivity(intent)
+            }
+
+            binding.btSecond.id -> {
+                Log.d(TAG, "btSecond/onClick!!")
+
+                val intent = Intent(this, GalleryActivity::class.java)
                 startActivity(intent)
             }
         }
