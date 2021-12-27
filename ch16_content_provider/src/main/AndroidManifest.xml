@@ -7,14 +7,8 @@
         <!-- 둘 중에 하나만 선언하면 됨 -->
         <!-- <provider android:authorities="com.huni.ch16_content_provider.test_provider"/> -->
         <package android:name="com.huni.ch16_content_provider" />
-    </queries>
-
-    <!-- 연락처 -->
+    </queries> <!-- 연락처 -->
     <uses-permission android:name="android.permission.READ_CONTACTS" />
-
-    <!-- 갤러리 파일 읽기 / 쓰기 -->
-<!--    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>-->
-<!--    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>-->
 
     <application
         android:allowBackup="true"
@@ -23,6 +17,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.My_doit_kotlin_sample">
+        <activity
+            android:name=".ui.CameraActivity"
+            android:exported="false" />
         <activity
             android:name=".ui.GalleryActivity"
             android:exported="false" />
