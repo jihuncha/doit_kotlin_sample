@@ -12,6 +12,7 @@ import androidx.activity.result.contract.ActivityResultContracts
 import androidx.core.app.ActivityCompat
 import com.huni.ch16_content_provider.data.MyContentProvider
 import com.huni.ch16_content_provider.databinding.ActivityMainBinding
+import com.huni.ch16_content_provider.project.ProjectActivity
 import com.huni.ch16_content_provider.ui.CameraActivity
 import com.huni.ch16_content_provider.ui.ContactActivity
 import com.huni.ch16_content_provider.ui.GalleryActivity
@@ -52,6 +53,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         binding.btThird.setOnClickListener(this)
         binding.btFourth.setOnClickListener(this)
         binding.btFifth.setOnClickListener(this)
+        binding.btProject.setOnClickListener(this)
 
         //시스템의 콘텐츠 프로바이더 사용
 //        contentProvider = MyContentProvider()
@@ -85,15 +87,19 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
 
                 val intent = Intent(Intent.ACTION_VIEW, Uri.parse("geo:37.5662952, 126.9779451"))
                 startActivity(intent)
-
-//                val intent = Intent(this, MapActivity::class.java)
-//                startActivity(intent)
             }
             binding.btFifth.id -> {
                 Log.d(TAG, "btFifth/onClick!!")
                 //permission 필요
                 val permission = android.Manifest.permission.CALL_PHONE
                 requestPermissionLauncher.launch(permission)
+            }
+
+            binding.btProject.id -> {
+                Log.d(TAG, "btProject/onClick!!")
+
+                val intent = Intent(this, ProjectActivity::class.java)
+                startActivity(intent)
             }
         }
     }
