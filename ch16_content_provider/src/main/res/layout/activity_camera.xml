@@ -25,5 +25,24 @@
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <Button
+        android:id="@+id/bt_share_file"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="사진 파일 공유 방식"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toLeftOf="@+id/iv_data_send_result"
+        app:layout_constraintTop_toBottomOf="@+id/data_send"/>
+
+    <ImageView
+        android:id="@+id/iv_share_file"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        app:layout_constraintLeft_toRightOf="@+id/data_send"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/iv_data_send_result" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

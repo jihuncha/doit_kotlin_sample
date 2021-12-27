@@ -1,0 +1,3 @@
+<paths xmlns:android="http://schemas.android.com/apk/res/android">
+    <external-path name="myfiles" path="Android/data/com.huni.ch16_content_provider/files/Pictures/" />
+</paths>

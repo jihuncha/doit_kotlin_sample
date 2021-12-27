@@ -7,8 +7,15 @@
         <!-- 둘 중에 하나만 선언하면 됨 -->
         <!-- <provider android:authorities="com.huni.ch16_content_provider.test_provider"/> -->
         <package android:name="com.huni.ch16_content_provider" />
-    </queries> <!-- 연락처 -->
+    </queries>
+    <!-- 연락처 -->
     <uses-permission android:name="android.permission.READ_CONTACTS" />
+    <!-- 파일 공유 -->
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <!-- 전화 앱 연동하기 -->
+    <uses-permission android:name="android.permission.CALL_PHONE"/>
+
+
 
     <application
         android:allowBackup="true"
@@ -41,6 +48,15 @@
             android:authorities="com.huni.ch16_content_provider.test_provider"
             android:enabled="true"
             android:exported="true" />
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="com.huni.ch16_content_provider.FileProvider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_path" />
+        </provider>
     </application>
 
 </manifest>
