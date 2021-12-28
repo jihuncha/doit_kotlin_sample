@@ -296,7 +296,126 @@
 
 
 
+<hr>
 
+#### 데이터 베이스
+
+* 대표적으로 SQLite
+* 테이블의 데이터를 앱의 저장소에 파일로 저장함 -> 외부앱이 접근 불가능
+* 코드에서는 질의문만 작성하면된다 (실제 데이터는 SQLite가 관리)
+
+
+
+* 질의문
+
+  * 데이터베이스 객체 생성
+
+    ~~~kotlin
+    val db = openOrCreateDatabase("testdb", Context.MODE_PRIVATE, null)
+    ~~~
+
+  * db 객체 생성 이후 execSQL(), rawQuery() 사용 가능함
+
+
+
+* 데이터베이스 관리
+  * SQLiteOpenHelper 클래스로 관리 (테이블 생성, 변경, 제거)
+  * 추상클래스이므로 상속받아서 하위 클래스를 작성해야한다
+
+
+
+* 파일에 보관하기
+
+  * SQLite나 Preference는 특정 API를 이용하여 파일로 저장하는 방식
+
+  * 앱에 직접 파일을 만들어 데이터를 쓰거나 읽는 방법은? -> java.io 패키지에서 제공하는 클래스를 사용
+
+    
+
+* 앱 파일 저장소
+
+  * 내장 메모리 (앱별 저장소)
+  * 외장 메모리 (앱별 저장소와 공용 저장소)
+
+
+
+* 내장 메모리의 파일 이용하기
+
+  * 내장 메모리는 앱이 설치되면 시스템이 자동으로 할당하는 공간 
+
+  * 안드로이드 시스템은 앱에서 파일을 이용하지 않아도 앱의 패키지명으로 디렉토리 생성 = 앱의 내장 메모리 공간
+
+  * 해당 앱만 접근 가능 = 민감한 데이터 관리, 크기 자체는 작다
+
+  * 파일을 내장 메모리에 저장할려면 java.io 의 File Class 사용 
+
+    ~~~kotlin
+    //파일 저장 (filesDir - Context객체)
+    val file = File(filesDir, "test.txt")
+    val writeStream: OutputStreamWriter = file.writer()
+    writeStream.write("hello world")
+    writeStream.flush()
+    ~~~
+
+  * 저장된 데이터를 읽어서 가져오는 방법
+
+    ~~~kotlin
+    val readStream: BufferedReader = file.reader().buffered()
+    readStream.forEachLine {
+        //TODO..
+    }
+    ~~~
+
+  * 또는 Context객체가 제공하는 openFileOutput(), openFileInput()을 사용하여 읽기/쓰기가 가능
+
+
+
+* 외장 메모리 파일 이용하기
+
+  * 외부 저장 장치 (SD카드등) 도 있으나, 내부 저장소의 파티션을 나누어 외장 메모리로도 저장 가능
+
+  * 외장 메모리 제공 여부를 Enviroment.getExternalStorageState() 로 체크한다.
+
+    ~~~ko
+    if (Environment.getExternalStorageState() == Environment.MEDIA_MOUNTED) {
+        Log.d(TAG, "MOUNTED!!")
+    } else {
+        Log.d(TAG, "UNMOUNTED!!")
+    }
+    ~~~
+
+  * 외장 메모리의 파일 이용시에 manifest에 permission 설정 필요
+
+    ~~~
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    //application 영역단에 설정
+    android:requestLegacyExternalStorage="true"
+    ~~~
+
+  * 외장메모리의 앱별 저장소 - getExternalFilesDir() 함수로 찾는다
+
+    ~~~ko
+    //외부저장소 - 앱별저장소 접근
+    val file:File? = getExternalFilesDir(null)
+    Log.d(TAG, "${file?.absolutePath}")
+    
+    //경로 - /storage/emulated/0/Android/data/com.huni.ch17_storage/files 
+    //null 대신에 DIRECTORY_PICTURES, DOCUMENTS, MUSIC 등등 사용가능
+    ~~~
+
+  * 파일 프로바이더로 외부 공유 (외장 메모리의 앱별 저장소를 외부앱에게 공유하려고 하면)
+
+    * 외부에 공유할 경로를 res/xml에 xml파일을 만들어 지정해줘야한다.
+
+    * 그 후 매니패스트에  provider 태그로 등록한다.
+
+      
+
+* 공용 저장소 이용
+
+  * 앱에서 만든 파일을 모든 앱이 이용할 수 있게끔 하도록.. (ex. Camera 앱)
+  * 내장메모리/외장메모리의 앱별 저장소는 앱 삭제시 파일 전부 삭제되나, 공용저장소의 경우는 앱을 삭제하더라도 파일이 삭제되지 않음
 
 
 
