@@ -329,6 +329,18 @@
   * SQLite나 Preference는 특정 API를 이용하여 파일로 저장하는 방식
 
   * 앱에 직접 파일을 만들어 데이터를 쓰거나 읽는 방법은? -> java.io 패키지에서 제공하는 클래스를 사용
+  
+* SharedPreference
+  * 플랫폼 API에서 제공하는 Class
+  * 데이터를 key - value 형태로 저장
+  * 내장메모리 앱 폴더에 XML 파일로 저장됨
+  
+* SharedPreferences 접근 방식
+  1. Activity.getPreferences(int mode)
+  2. Context.getSharedPreferences(String name, int Mode)
+  
+
+
 
     
 
