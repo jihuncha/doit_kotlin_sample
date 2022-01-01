@@ -330,27 +330,12 @@
 
   * 앱에 직접 파일을 만들어 데이터를 쓰거나 읽는 방법은? -> java.io 패키지에서 제공하는 클래스를 사용
   
-* SharedPreference
-  * 플랫폼 API에서 제공하는 Class
-  * 데이터를 key - value 형태로 저장
-  * 내장메모리 앱 폴더에 XML 파일로 저장됨
-  
-* SharedPreferences 접근 방식
-  1. Activity.getPreferences(int mode)
-  2. Context.getSharedPreferences(String name, int Mode)
-  
-
-
-
-    
-
 * 앱 파일 저장소
 
   * 내장 메모리 (앱별 저장소)
   * 외장 메모리 (앱별 저장소와 공용 저장소)
 
-
-
+  
 * 내장 메모리의 파일 이용하기
 
   * 내장 메모리는 앱이 설치되면 시스템이 자동으로 할당하는 공간 
@@ -428,6 +413,20 @@
 
   * 앱에서 만든 파일을 모든 앱이 이용할 수 있게끔 하도록.. (ex. Camera 앱)
   * 내장메모리/외장메모리의 앱별 저장소는 앱 삭제시 파일 전부 삭제되나, 공용저장소의 경우는 앱을 삭제하더라도 파일이 삭제되지 않음
+
+
+* SharedPreference
+  * 플랫폼 API에서 제공하는 Class
+  * 데이터를 key - value 형태로 저장
+  * 내장메모리 앱 폴더에 XML 파일로 저장됨
+
+* SharedPreferences 접근 방식
+  1. Activity.getPreferences(int mode)
+  2. Context.getSharedPreferences(String name, int Mode)
+  
+* 앱 설정 화면 만들기
+  * 앱 설정 화면을 만들어주는 api가 있다!! (androidx.preference:preference-ktx:1.1.1)
+  * res/xml에 설정과 관련된 xml 파일을 만들어야한다
 
 
 

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+    <SwitchPreferenceCompat
+        android:key="notification"
+        android:title="Enable message notifications">
+    </SwitchPreferenceCompat>
+
+    <Preference
+        android:key="feedback"
+        android:title="Send feedback"
+        android:summary="Report technical issues or suggest new features">
+    </Preference>
+
+    <PreferenceCategory
+        android:key="a_category"
+        android:title="A setting">
+        <SwitchPreferenceCompat
+            android:key="a1"
+            android:title="a1 setting"/>
+        <SwitchPreferenceCompat
+            android:key="a2"
+            android:title="a2 setting"/>
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:key="b_category"
+        android:title="B setting">
+        <SwitchPreferenceCompat
+            android:key="b1"
+            android:title="b1 setting"/>
+    </PreferenceCategory>
+
+</PreferenceScreen>

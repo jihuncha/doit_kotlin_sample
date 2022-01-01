@@ -14,6 +14,7 @@ import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.core.app.ActivityCompat
 import com.huni.ch17_storage.databinding.ActivityMainBinding
+import com.huni.ch17_storage.ui.SettingActivity
 import java.io.File
 import java.io.OutputStreamWriter
 
@@ -113,6 +114,11 @@ class MainActivity : AppCompatActivity() {
             requestPermissionLauncher.launch(permission)
         }
 
+        binding.btSetting.setOnClickListener {
+            val intent = Intent(this@MainActivity, SettingActivity::class.java)
+            startActivity(intent)
+        }
+
         //외부저장소 사용 여부
         if (Environment.getExternalStorageState() == Environment.MEDIA_MOUNTED) {
             Log.d(TAG, "MOUNTED!!")
@@ -160,6 +166,17 @@ class MainActivity : AppCompatActivity() {
         val sharedPrefAppAll = getSharedPreferences("my_prefs", Context.MODE_PRIVATE)
 
         //SharedPreferences.Editor 객체로 수정하여 commit()호출하면 수정된다.
+        sharedPref.edit().run {
+            putString("data1", "hello")
+            putInt("data2", 10)
+            commit()
+        }
+
+        //데이터 꺼내오기
+        val data1 = sharedPref.getString("data1", "world")
+        val data2 = sharedPref.getInt("data2", 20)
+
+        Log.d(TAG, "datacheck - $data1 , $data2")
 
 
     }
