@@ -7,14 +7,12 @@ import android.graphics.BitmapFactory
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Environment
-import android.provider.ContactsContract
 import android.provider.MediaStore
 import android.util.Log
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
-import androidx.core.app.ActivityCompat
 import com.huni.ch17_storage.databinding.ActivityMainBinding
-import com.huni.ch17_storage.ui.SettingActivity
+import com.huni.ch17_storage.ui.SettingTestActivity
 import java.io.File
 import java.io.OutputStreamWriter
 
@@ -115,7 +113,7 @@ class MainActivity : AppCompatActivity() {
         }
 
         binding.btSetting.setOnClickListener {
-            val intent = Intent(this@MainActivity, SettingActivity::class.java)
+            val intent = Intent(this@MainActivity, SettingTestActivity::class.java)
             startActivity(intent)
         }
 

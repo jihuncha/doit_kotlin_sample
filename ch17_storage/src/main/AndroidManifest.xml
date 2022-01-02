@@ -17,7 +17,7 @@
             android:name=".project.ProjectActivity"
             android:exported="false" />
         <activity
-            android:name=".ui.SettingActivity"
+            android:name=".ui.SettingTestActivity"
             android:exported="false" />
         <activity
             android:name=".MainActivity"
