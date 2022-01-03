@@ -427,6 +427,12 @@
 * 앱 설정 화면 만들기
   * 앱 설정 화면을 만들어주는 api가 있다!! (androidx.preference:preference-ktx:1.1.1)
   * res/xml에 설정과 관련된 xml 파일을 만들어야한다
+  
+<hr>
+
+#### 네트워크 프로그래밍
+
+
 
 
 
