@@ -12,6 +12,7 @@ import android.util.Log
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
 import com.huni.ch17_storage.databinding.ActivityMainBinding
+import com.huni.ch17_storage.project.ProjectActivity
 import com.huni.ch17_storage.ui.SettingTestActivity
 import java.io.File
 import java.io.OutputStreamWriter
@@ -114,6 +115,11 @@ class MainActivity : AppCompatActivity() {
 
         binding.btSetting.setOnClickListener {
             val intent = Intent(this@MainActivity, SettingTestActivity::class.java)
+            startActivity(intent)
+        }
+
+        binding.btProject.setOnClickListener {
+            val intent = Intent(this@MainActivity, ProjectActivity::class.java)
             startActivity(intent)
         }
 

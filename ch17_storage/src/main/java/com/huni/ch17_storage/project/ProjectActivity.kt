@@ -9,6 +9,7 @@ import android.view.MenuItem
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.ch17_database.DBHelper
 import com.huni.ch17_storage.R
 import com.huni.ch17_storage.databinding.ActivityProjectBinding
 
@@ -46,7 +47,15 @@ class ProjectActivity : AppCompatActivity() {
         datas = mutableListOf<String>()
 
         //add......................
-
+        //DB에서 데이터를 select 이후 가져온다.
+        val db = DBHelper(this).readableDatabase
+        val cursor = db.rawQuery("select * from TODO_TB", null)
+        cursor.run {
+            while (moveToNext()) {
+                datas?.add(cursor.getString(1))
+            }
+        }
+        db.close()
 
         val layoutManager = LinearLayoutManager(this)
         binding.mainRecyclerView.layoutManager = layoutManager
