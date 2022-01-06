@@ -3,6 +3,8 @@
     package="com.huni.ch18_network_programming">
 
     <uses-permission android:name="android.permission.READ_PHONE_NUMBERS"/>
+    <!-- ConnectivityManager 사용 -->
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
 
     <application
         android:allowBackup="true"

@@ -2,6 +2,8 @@ package com.huni.ch18_network_programming
 
 import android.content.Context
 import android.content.Intent
+import android.net.ConnectivityManager
+import android.net.NetworkCapabilities
 import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -23,7 +25,7 @@ class MainActivity : AppCompatActivity() {
 
     private lateinit var binding : ActivityMainBinding
 
-    //권한요청 - 각종 정보 제공받음
+    //READ_PHONE_NUMBERS
     val requestPermissionLauncher =
         registerForActivityResult(
             ActivityResultContracts.RequestPermission()
@@ -62,6 +64,28 @@ class MainActivity : AppCompatActivity() {
         //네트워크 제공 체크
         val permission = android.Manifest.permission.READ_PHONE_NUMBERS
         requestPermissionLauncher.launch(permission)
+
+        binding.btMain.setOnClickListener {
+            Toast.makeText(this, "network - ${isNetworkAvailable()}", Toast.LENGTH_SHORT).show()
+        }
+    }
+
+    fun isNetworkAvailable(): Boolean {
+        val connectivityManager = getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            val nw = connectivityManager.activeNetwork ?: return false
+            val actNw = connectivityManager.getNetworkCapabilities(nw) ?: return false
+            return when {
+                actNw.hasTransport(NetworkCapabilities.TRANSPORT_WIFI) -> {
+                    Log.d(TAG, "wifi available")
+                    true
+                }
+                else -> false
+            }
+        } else {
+            return connectivityManager.activeNetworkInfo?.isConnected ?: false
+        }
     }
 }
 
