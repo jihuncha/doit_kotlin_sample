@@ -5,7 +5,6 @@ import android.os.Bundle
 import android.util.Log
 import com.huni.ch18_network_programming.databinding.ActivityRetrofitBinding
 import com.huni.ch18_network_programming.volley.data.ApiRequestFactory
-import com.huni.ch18_network_programming.volley.data.RetrofitInterface
 import com.huni.ch18_network_programming.volley.data.TempDataClass
 import retrofit2.Call
 import retrofit2.Callback

@@ -335,7 +335,6 @@
   * 내장 메모리 (앱별 저장소)
   * 외장 메모리 (앱별 저장소와 공용 저장소)
 
-  
 * 내장 메모리의 파일 이용하기
 
   * 내장 메모리는 앱이 설치되면 시스템이 자동으로 할당하는 공간 
@@ -439,7 +438,7 @@
   
 * Retrofit
   * Retrofit은 네트워크 통신 정보만 주면 그대로 네트워크 프로그래밍을 구현해줌
-    
+
   * 작동방식
     1. 통신용 함수를 선언한 인터페이스 작성
     2. Retrofit에 인터페이스전달
@@ -448,13 +447,42 @@
     5. Call 객체의 enqueue() 함수를 호출하여 네트워크 통신을 수행
     
   * retrofit은 JSON이나 XML 데이터를 모델(VO클래스) 객체로 변환해줌 
-    * 이때 JSON, XML을 파싱하는 라이브러리가 필요 (gson, gson-converter)
-  
+    
+  * 이때 JSON, XML을 파싱하는 라이브러리가 필요 (gson, gson-converter)
+    
   * 모델 클래스 - data class 사용
-    * 키와 프로퍼티 이름이 다를 경우에 @SerializedName 사용  
-  
+    
+  * 키와 프로퍼티 이름이 다를 경우에 @SerializedName 사용  
+    
   * 서비스 인터페이스 정의
 
+  * Retrofit 객체 생성
+
+  * 인터페이스 타입의 서비스 객체 얻기 -> 네트워크 통신 시도
+
+  * 각종 Annotation
+
+    * @GET - 메서드명만 지정 또는 URL 경로 지정 또는 ?를 통하여 URL뒤에 데이터 추가 가능
+
+    * @Path - URL 의 경로를 동적으로 지정 
+
+    * @Query - 경로에 ?를 넣어서 서버에 전달할 데이터를 지정하지 않고, 함수의 매개변수값을 서버에 전달하기 위해 사용
+
+    * @QueryMap - 서버에 전송할 데이터가 많을 경우
+
+    * @Body - 서버에 전송할 데이터를 모델 객체로 지정하고 싶은 경우
+
+    * @FormUrlEncoded 와 @Field 
+
+      1. FormUrlEncoded  - 데이터를 URL 인코딩 형태로 만들어 전송 (Post방식에서만 사용 가능)
+
+      2. Field - 추가된 데이터를 인코딩해서 전송함 (FormUrlEncoded  사용할때만 적용가능)
+
+    * @Header - Header 조정
+
+    * @Url - baseUrl을 무시하고 다른 Url 지정
+
+      
 
 
 
