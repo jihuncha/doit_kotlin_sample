@@ -21,6 +21,7 @@ import com.android.volley.Response
 import com.android.volley.toolbox.StringRequest
 import com.android.volley.toolbox.Volley
 import com.huni.ch18_network_programming.databinding.ActivityMainBinding
+import com.huni.ch18_network_programming.volley.RetrofitActivity
 import com.huni.ch18_network_programming.volley.VolleyActivity
 
 class MainActivity : AppCompatActivity() {
@@ -77,6 +78,11 @@ class MainActivity : AppCompatActivity() {
 
         binding.btVolley.setOnClickListener {
             val intent = Intent(this, VolleyActivity::class.java)
+            startActivity(intent)
+        }
+
+        binding.btRetrofit.setOnClickListener {
+            val intent = Intent(this, RetrofitActivity::class.java)
             startActivity(intent)
         }
     }
