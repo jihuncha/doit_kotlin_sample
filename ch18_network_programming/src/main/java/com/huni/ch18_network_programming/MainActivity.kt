@@ -16,7 +16,12 @@ import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.annotation.RequiresApi
 import androidx.core.app.ActivityCompat
+import com.android.volley.Request
+import com.android.volley.Response
+import com.android.volley.toolbox.StringRequest
+import com.android.volley.toolbox.Volley
 import com.huni.ch18_network_programming.databinding.ActivityMainBinding
+import com.huni.ch18_network_programming.volley.VolleyActivity
 
 class MainActivity : AppCompatActivity() {
     companion object {
@@ -24,6 +29,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private lateinit var binding : ActivityMainBinding
+    private val url:String = "http://www.google.com"
 
     //READ_PHONE_NUMBERS
     val requestPermissionLauncher =
@@ -67,6 +73,11 @@ class MainActivity : AppCompatActivity() {
 
         binding.btMain.setOnClickListener {
             Toast.makeText(this, "network - ${isNetworkAvailable()}", Toast.LENGTH_SHORT).show()
+        }
+
+        binding.btVolley.setOnClickListener {
+            val intent = Intent(this, VolleyActivity::class.java)
+            startActivity(intent)
         }
     }
 

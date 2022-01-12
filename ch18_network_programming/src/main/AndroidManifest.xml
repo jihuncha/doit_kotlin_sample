@@ -2,9 +2,9 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.huni.ch18_network_programming">
 
-    <uses-permission android:name="android.permission.READ_PHONE_NUMBERS"/>
-    <!-- ConnectivityManager 사용 -->
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.READ_PHONE_NUMBERS" /> <!-- ConnectivityManager 사용 -->
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:allowBackup="true"
@@ -12,7 +12,11 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.My_doit_kotlin_sample">
+        android:theme="@style/Theme.My_doit_kotlin_sample"
+        android:usesCleartextTraffic="true">
+        <activity
+            android:name=".volley.VolleyActivity"
+            android:exported="false" />
         <activity
             android:name=".MainActivity"
             android:exported="true">
