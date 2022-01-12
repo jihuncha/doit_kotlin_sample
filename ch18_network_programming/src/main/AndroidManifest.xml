@@ -15,6 +15,9 @@
         android:theme="@style/Theme.My_doit_kotlin_sample"
         android:usesCleartextTraffic="true">
         <activity
+            android:name=".volley.RetrofitActivity"
+            android:exported="false" />
+        <activity
             android:name=".volley.VolleyActivity"
             android:exported="false" />
         <activity

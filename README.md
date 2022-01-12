@@ -437,6 +437,24 @@
     1. RequestQueue : 서버요청자 (서버에 요청을 보는 역할)
     2. XXXRequest:XXX 타입의 결과를 받는 요청 정보 (객체에 담아서 전송)
   
+* Retrofit
+  * Retrofit은 네트워크 통신 정보만 주면 그대로 네트워크 프로그래밍을 구현해줌
+    
+  * 작동방식
+    1. 통신용 함수를 선언한 인터페이스 작성
+    2. Retrofit에 인터페이스전달
+    3. Retrofit이 통신용 서비스 객체 반환
+    4. 서비스의 통신용 함수를 호출한 후 Call 객체를 반환
+    5. Call 객체의 enqueue() 함수를 호출하여 네트워크 통신을 수행
+    
+  * retrofit은 JSON이나 XML 데이터를 모델(VO클래스) 객체로 변환해줌 
+    * 이때 JSON, XML을 파싱하는 라이브러리가 필요 (gson, gson-converter)
+  
+  * 모델 클래스 - data class 사용
+    * 키와 프로퍼티 이름이 다를 경우에 @SerializedName 사용  
+  
+  * 서비스 인터페이스 정의
+
 
 
 
