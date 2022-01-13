@@ -1,11 +1,11 @@
-package com.huni.ch18_network_programming.volley
+package com.huni.ch18_network_programming.library
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import com.huni.ch18_network_programming.databinding.ActivityRetrofitBinding
-import com.huni.ch18_network_programming.volley.data.ApiRequestFactory
-import com.huni.ch18_network_programming.volley.data.TempDataClass
+import com.huni.ch18_network_programming.library.data.ApiRequestFactory
+import com.huni.ch18_network_programming.library.data.TempDataClass
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response

@@ -7,22 +7,16 @@ import android.net.NetworkCapabilities
 import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.provider.ContactsContract
-import android.telephony.PhoneStateListener
-import android.telephony.TelephonyCallback
 import android.telephony.TelephonyManager
 import android.util.Log
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.annotation.RequiresApi
 import androidx.core.app.ActivityCompat
-import com.android.volley.Request
-import com.android.volley.Response
-import com.android.volley.toolbox.StringRequest
-import com.android.volley.toolbox.Volley
 import com.huni.ch18_network_programming.databinding.ActivityMainBinding
-import com.huni.ch18_network_programming.volley.RetrofitActivity
-import com.huni.ch18_network_programming.volley.VolleyActivity
+import com.huni.ch18_network_programming.library.GlideActivity
+import com.huni.ch18_network_programming.library.RetrofitActivity
+import com.huni.ch18_network_programming.library.VolleyActivity
 
 class MainActivity : AppCompatActivity() {
     companion object {
@@ -85,6 +79,13 @@ class MainActivity : AppCompatActivity() {
             val intent = Intent(this, RetrofitActivity::class.java)
             startActivity(intent)
         }
+
+        binding.btGlide.setOnClickListener {
+            val intent = Intent(this, GlideActivity::class.java)
+            startActivity(intent)
+        }
+
+
     }
 
     fun isNetworkAvailable(): Boolean {

@@ -15,10 +15,13 @@
         android:theme="@style/Theme.My_doit_kotlin_sample"
         android:usesCleartextTraffic="true">
         <activity
-            android:name=".volley.RetrofitActivity"
+            android:name=".library.GlideActivity"
             android:exported="false" />
         <activity
-            android:name=".volley.VolleyActivity"
+            android:name=".library.RetrofitActivity"
+            android:exported="false" />
+        <activity
+            android:name=".library.VolleyActivity"
             android:exported="false" />
         <activity
             android:name=".MainActivity"

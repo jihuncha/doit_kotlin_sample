@@ -1,10 +1,9 @@
-package com.huni.ch18_network_programming.volley
+package com.huni.ch18_network_programming.library
 
 import android.graphics.Bitmap
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
-import android.widget.ImageView
 import com.android.volley.Request
 import com.android.volley.Response
 import com.android.volley.toolbox.*
