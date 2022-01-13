@@ -17,6 +17,7 @@ import com.huni.ch18_network_programming.databinding.ActivityMainBinding
 import com.huni.ch18_network_programming.library.GlideActivity
 import com.huni.ch18_network_programming.library.RetrofitActivity
 import com.huni.ch18_network_programming.library.VolleyActivity
+import com.huni.ch18_network_programming.project.ProjectActivity
 
 class MainActivity : AppCompatActivity() {
     companion object {
@@ -82,6 +83,11 @@ class MainActivity : AppCompatActivity() {
 
         binding.btGlide.setOnClickListener {
             val intent = Intent(this, GlideActivity::class.java)
+            startActivity(intent)
+        }
+
+        binding.btProject.setOnClickListener {
+            val intent = Intent(this, ProjectActivity::class.java)
             startActivity(intent)
         }
 

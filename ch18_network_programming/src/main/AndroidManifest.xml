@@ -7,6 +7,7 @@
     <uses-permission android:name="android.permission.INTERNET" />
 
     <application
+        android:name=".MyApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -14,6 +15,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.My_doit_kotlin_sample"
         android:usesCleartextTraffic="true">
+        <activity
+            android:name=".project.ProjectActivity"
+            android:exported="false" />
         <activity
             android:name=".library.GlideActivity"
             android:exported="false" />
