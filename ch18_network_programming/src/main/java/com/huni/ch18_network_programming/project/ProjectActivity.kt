@@ -2,6 +2,7 @@ package com.huni.ch18_network_programming.project
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.Menu
 import android.view.MenuItem
 import com.example.ch18_network.RetrofitFragment
 import com.example.ch18_network.VolleyFragment
@@ -31,6 +32,11 @@ class ProjectActivity : AppCompatActivity() {
             .replace(R.id.activity_content, volleyFragment)
             .commit()
         supportActionBar?.title="Volley Test"
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.menu_main, menu)
+        return super.onCreateOptionsMenu(menu)
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
