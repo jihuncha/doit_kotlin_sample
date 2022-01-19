@@ -487,6 +487,16 @@
   * 플랫폼 API 사용
   * Google Play 서비스에서 제공하는 라이브러리 사용
 
+  * 접근 권한 
+    - ACCESS_COARSE_LOCATION : 와이파이나 모바일 데이터를 사용해 기기의 위치에 접근하는 권한
+    - ACCESS_FINE_LOCATION : 위성, 와이파이, 모바일데이터 등 이용할 수 있는 위치 제공자를 사용해 최대한 정확한 위치에 접근하는 권한
+    - ACCESS_BACKGROUND_LOCATION : Android 10 이상에서 백그라운드에서 위치로 접근하는 권한
+  
+  * 서비스 컴포넌트에서 위치에 접근할려면 manifest 에서 foregroundServiceType = location 지정해준다.
+
+  * 플랫폼 API의 위치 매니저
+    - LocationManager라는 시스템 서비스를 사용한다.
+
 
 
 
