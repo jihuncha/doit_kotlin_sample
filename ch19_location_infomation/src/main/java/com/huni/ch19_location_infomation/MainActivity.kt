@@ -11,6 +11,14 @@ import android.os.Bundle
 import android.util.Log
 import android.widget.Toast
 import androidx.core.content.ContextCompat
+import com.google.android.gms.auth.api.signin.GoogleSignIn
+import com.google.android.gms.auth.api.signin.GoogleSignInAccount
+import com.google.android.gms.auth.api.signin.GoogleSignInClient
+import com.google.android.gms.auth.api.signin.GoogleSignInOptions
+import com.google.android.gms.common.api.Api
+import com.google.android.gms.common.api.GoogleApi
+import com.google.android.gms.common.api.GoogleApiClient
+import com.google.android.gms.location.LocationServices
 import com.huni.ch19_location_infomation.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
@@ -19,6 +27,8 @@ class MainActivity : AppCompatActivity() {
     }
 
     private lateinit var binding: ActivityMainBinding
+
+    private lateinit var mGoogleSignInClient: GoogleSignInClient
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -92,10 +102,32 @@ class MainActivity : AppCompatActivity() {
             manager.requestLocationUpdates(LocationManager.NETWORK_PROVIDER, 1000, 10f, listener)
         }
 
-//        initClick()
-    }
 
-//    fun initClick() {
+        //fused location api 이용 
+        //FusedLocationProviderClient - 위치정보를 얻습니다
+        //GoogleApiClient - 위치 제공자 준비 등 다양한 콜백을 제공합니다
+        //GoogleApiClient 결정 -> FusedLocationProviderClient로 위치를 가져온다.
+
+        binding.btFusedLocation.setOnClickListener {
+            //deprecated...GoogleApiClient.ConnectionCallbacks
+            //TODO https://android-developers.googleblog.com/2017/11/moving-past-googleapiclient_21.html
+
+            // Code required for requesting location permissions omitted for brevity.
+            //fused 초기화
+            val client = LocationServices.getFusedLocationProviderClient(this)
+
+            // Get the last known location. In some rare situations, this can be null.
+            client.lastLocation.addOnSuccessListener { location : Location? ->
+                location?.let {
+                    Log.d(TAG, "btFusedLocation/location - $it")
+                }
+            }
+        }
+
+//        val options = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
+//            .requestEmail()
+//            .build()
 //
-//    }
+//        mGoogleSignInClient = GoogleSignIn.getClient(this, options)
+    }
 }
