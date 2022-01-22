@@ -496,6 +496,13 @@
 
   * 플랫폼 API의 위치 매니저
     - LocationManager라는 시스템 서비스를 사용한다.
+  
+  * 구글 지도앱 사용해보기
+    1. 구글 개발자 콘솔에서 지도 API 키를 발급받아야한다.
+    2. 1의 과정에서 SHA1 지문이라는 인증 정보가 필요하다
+    3. SHA1 지문은 앱을 서명한 키 파일이 있어야 만들 수 있음
+    4. keytool -list -v -keystore test.jks(키파일명) -alias key()(키이름) -storepass ####(키파일비밀번호) -keyass #####(키 비밀번호)
+  
 
 
 

@@ -31,6 +31,16 @@
         android:text="fused"
         app:layout_constraintTop_toBottomOf="@+id/bt_get_location_once"
         app:layout_constraintStart_toStartOf="@+id/bt_get_location_once"
-        app:layout_constraintRight_toRightOf="parent" />
+        app:layout_constraintRight_toLeftOf="@+id/bt_google_map" />
+
+    <Button
+        android:id="@+id/bt_google_map"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="googlemap"
+        app:layout_constraintTop_toBottomOf="@+id/bt_get_location_always"
+        app:layout_constraintLeft_toRightOf="@+id/bt_fused_location"
+        app:layout_constraintRight_toRightOf="parent"
+        />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
