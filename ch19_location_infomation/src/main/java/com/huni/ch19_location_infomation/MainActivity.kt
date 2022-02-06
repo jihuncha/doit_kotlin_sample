@@ -2,6 +2,7 @@ package com.huni.ch19_location_infomation
 
 import android.Manifest
 import android.content.Context
+import android.content.Intent
 import android.content.pm.PackageManager
 import android.location.Location
 import android.location.LocationListener
@@ -20,6 +21,7 @@ import com.google.android.gms.common.api.GoogleApi
 import com.google.android.gms.common.api.GoogleApiClient
 import com.google.android.gms.location.LocationServices
 import com.huni.ch19_location_infomation.databinding.ActivityMainBinding
+import com.huni.ch19_location_infomation.project.ProjectActivity
 
 class MainActivity : AppCompatActivity() {
     companion object {
@@ -129,5 +131,11 @@ class MainActivity : AppCompatActivity() {
 //            .build()
 //
 //        mGoogleSignInClient = GoogleSignIn.getClient(this, options)
+
+
+        binding.btGoogleMap.setOnClickListener {
+            val intent = Intent(this, ProjectActivity::class.java)
+            startActivity(intent)
+        }
     }
 }
