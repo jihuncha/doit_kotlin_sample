@@ -17,5 +17,5 @@ class ProjectActivity : AppCompatActivity() {
         setContentView(binding.root)
     }
 
-    
+    //요즘잘안하네..
 }
