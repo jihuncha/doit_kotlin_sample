@@ -24,7 +24,7 @@
         <!-- TODO key 입력이 필요하다 -->
         <meta-data
             android:name="com.google.android.maps.v2.API_KEY"
-            android:value="AIzaSyCa4fCCz0EC7ROhl_0GDzpvFoMBCR60YfY" />
+            android:value="${API_KEY}"/>
         <activity
             android:name=".MainActivity"
             android:exported="true">

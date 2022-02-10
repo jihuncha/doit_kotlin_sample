@@ -3,6 +3,10 @@ plugins {
     id 'kotlin-android'
 }
 
+// 선언 및 키값을 불러옴
+Properties properties = new Properties()
+properties.load(project.rootProject.file('local.properties').newDataInputStream())
+
 android {
     compileSdk 31
 
@@ -14,6 +18,8 @@ android {
         versionName "1.0"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+
+        manifestPlaceholders["API_KEY"] = properties['api_key']
     }
 
     buildTypes {
@@ -48,6 +54,6 @@ dependencies {
 
     //Location - google에서 제공하는
     implementation 'com.google.android.gms:play-services-location:19.0.1'
-
-
+    //?????
+    implementation 'com.google.android.gms:play-services-maps:18.0.2'
 }
