@@ -502,7 +502,24 @@
     2. 1의 과정에서 SHA1 지문이라는 인증 정보가 필요하다
     3. SHA1 지문은 앱을 서명한 키 파일이 있어야 만들 수 있음
     4. keytool -list -v -keystore test.jks(키파일명) -alias key()(키이름) -storepass ####(키파일비밀번호) -keyass #####(키 비밀번호)
+
+<hr>
+
+#### 파이어베이스 연동 및 인증
+
+  * 파이어베이스 핵심 기능
+    1. Authentication : 인증, 회원가입 및 로그인 처리
+    2. Cloud Messaging : 알림 전송
+    3. Cloud Firestore : 앱 데이터 저장 및 동기화
+    4. Realtime Database : 실시간 데이터 저장 및 동기화
+    5. Cloud Storage : 파일 저장소
+    6. Hosting : 웹 호스팅
+    7. Cloud Functions: 서버 관리 없이 모바일 백엔드 코드 실행
+    8. Machine Learning: 모바일 개발자용 머신러닝
   
+
+  
+
 
 
 
