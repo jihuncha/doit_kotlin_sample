@@ -6,6 +6,8 @@ plugins {
 // 선언 및 키값을 불러옴
 Properties properties = new Properties()
 properties.load(project.rootProject.file('local.properties').newDataInputStream())
+def key = properties.getProperty('api_key')
+def key_manifest = properties.getProperty('api_key_manifest')
 
 android {
     compileSdk 31
@@ -19,7 +21,9 @@ android {
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
 
-        manifestPlaceholders["API_KEY"] = properties['api_key']
+        buildConfigField("String", "GOOGLE_MAP_API_KEY", key)
+        manifestPlaceholders = [googleMapKey : key_manifest]
+//        manifestPlaceholders["API_KEY"] = properties['api_key_manifest']
     }
 
     buildTypes {
