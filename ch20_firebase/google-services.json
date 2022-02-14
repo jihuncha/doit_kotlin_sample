@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "216665149136",
+    "project_id": "doitsampleapp",
+    "storage_bucket": "doitsampleapp.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:216665149136:android:85d2271c15a6c6ac07d8d5",
+        "android_client_info": {
+          "package_name": "com.huni.ch20_firebase"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "216665149136-0885rcvvs89rjfcfp12o26cb3gs77vgv.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.huni.ch20_firebase",
+            "certificate_hash": "f40fe236296bc43ceca8b72d9ebd68427023c52d"
+          }
+        },
+        {
+          "client_id": "216665149136-ubqhj1rlhj1gl5r0dom36v74ms9ot24o.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC9NSVQhR8sp1S4S6CrAZRkA_o0cXpSUi8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "216665149136-ubqhj1rlhj1gl5r0dom36v74ms9ot24o.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
