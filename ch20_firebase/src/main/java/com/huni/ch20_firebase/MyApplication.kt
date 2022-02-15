@@ -15,11 +15,8 @@ class MyApplication : MultiDexApplication() {
             val currentUser = auth.currentUser
             return currentUser?.let {
                 email = currentUser.email
-                if (currentUser.isEmailVerified) {
-                    true
-                } else {
-                    false
-                }
+                //return 부분
+                currentUser.isEmailVerified
                 //TODO 왜 이렇게했지? ?: false 면 되지 않나..?
             } ?: let {
                 false

@@ -11,6 +11,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.My_doit_kotlin_sample">
         <activity
+            android:name=".AuthActivity"
+            android:exported="false" />
+        <activity
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>
