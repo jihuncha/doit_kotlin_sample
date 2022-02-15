@@ -87,7 +87,7 @@
        2. SingleTop - 액티비티 정보가 테스크의 위쪽에 있을 때 인텐트가 발생해도 객체를 생성하지 않음 (onNewIntent)
                               테스크 위쪽에 있을때만 객체를 생성하지 않는다. (ex. 채팅에서 노티로 타 채팅방에 이동하는 경우)
        3. SingleTask - 새로운 테스크를 만들어 등록 (다른 앱일 경우에만 적용)
-       4. ingleInstance - 새로운 테스크를 만들어 등록하지만, 그 테스트에는 해당 설정이 적용된 엑티비티 하나만 등록 = 액티비티 하나가 혼자 테스크를 차지한다.
+       4. SingleInstance - 새로운 테스크를 만들어 등록하지만, 그 테스트에는 해당 설정이 적용된 엑티비티 하나만 등록 = 액티비티 하나가 혼자 테스크를 차지한다.
 
    * 3-5. ANR and Coroutine
 
@@ -517,6 +517,29 @@
     7. Cloud Functions: 서버 관리 없이 모바일 백엔드 코드 실행
     8. Machine Learning: 모바일 개발자용 머신러닝
   
+#### 파이어스토어, 스토리지, FCM 
+
+  * 클라우드 파이어스토어 / 실시간 데이터베이스로 클라우드 기반 데이터베이스 제공
+
+  * 파이어스토어
+    * NoSQL 기반
+    * 컬렉션으로 정리되는 문서에 저장되는 형태 (테이블/행이 없음)
+    * 키-값의 쌍이 저장되는 형태
+  
+  * 파이어스토어 보안규칙
+    * 저장된 데이터를 이용할 때 다양한 보안규칙을 적용할 수 있다
+  
+~~~
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    match /{document=**} {
+      allow read, write: if false;                        //읽기, 쓰기 거부
+      allow read, write if request.auth.uid != null;      //인증된 사용자만 읽기, 쓰기 허용
+    }
+  }
+}
+~~~
 
   
 
