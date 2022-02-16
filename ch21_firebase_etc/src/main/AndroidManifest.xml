@@ -2,16 +2,27 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.huni.ch21_firebase_etc">
 
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+
     <application
+        android:name=".MyApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
+        android:requestLegacyExternalStorage="true"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.My_doit_kotlin_sample">
         <activity
-            android:name=".storage.StorageActivity"
+            android:name=".storage.StorageAuthActivity"
             android:exported="false" />
+        <activity
+            android:name=".storage.StorageMainActivity"
+            android:exported="false" />
+        <activity
+            android:name=".storage.StorageAddActivity"
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize" />
         <activity
             android:name=".MainActivity"
             android:exported="true">
