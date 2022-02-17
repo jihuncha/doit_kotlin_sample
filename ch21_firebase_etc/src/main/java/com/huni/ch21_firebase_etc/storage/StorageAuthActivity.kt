@@ -3,6 +3,7 @@ package com.huni.ch21_firebase_etc.storage
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.widget.Toast
 import com.google.android.gms.auth.api.signin.GoogleSignIn
@@ -13,6 +14,10 @@ import com.huni.ch21_firebase_etc.MyApplication
 import com.huni.ch21_firebase_etc.databinding.ActivityStorageAuthBinding
 
 class StorageAuthActivity : AppCompatActivity() {
+    companion object {
+        val TAG : String = StorageAuthActivity::class.java.simpleName
+    }
+
     lateinit var binding: ActivityStorageAuthBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -44,6 +49,8 @@ class StorageAuthActivity : AppCompatActivity() {
                 .requestIdToken("216665149136-ubqhj1rlhj1gl5r0dom36v74ms9ot24o.apps.googleusercontent.com")
                 .requestEmail()
                 .build()
+
+            Log.d(TAG, "googleLoginBtn - onClick")
             //구글의 인증관리 앱 실행
             val signInIntent = GoogleSignIn.getClient(this, gso).signInIntent
             startActivityForResult(signInIntent, 10)
@@ -144,6 +151,8 @@ class StorageAuthActivity : AppCompatActivity() {
                     }
 
             } catch (e: ApiException) {
+                //https://goni9071.tistory.com/489
+                Log.e(TAG, "ERROR!! - $e")
                 changeVisibility("logout")
             }
         }

@@ -63,6 +63,7 @@ class StorageMainActivity : AppCompatActivity() {
     }
 
     private fun makeRecyclerView(){
+        Log.d(TAG, "makeRecyclerView")
         MyApplication.db.collection("news")
             .get()
             .addOnSuccessListener { result ->

@@ -1,6 +1,7 @@
 package com.huni.ch21_firebase_etc.recycler
 
 import android.content.Context
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
@@ -16,6 +17,10 @@ class MyViewHolder(val binding: ItemMainBinding) : RecyclerView.ViewHolder(bindi
 class MyAdapter(val context: Context, val itemList: MutableList<ItemData>) :
     RecyclerView.Adapter<MyViewHolder>() {
 
+    companion object {
+        val TAG: String = MyAdapter::class.java.simpleName
+    }
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
         val layoutInflater = LayoutInflater.from(parent.context)
         return MyViewHolder(ItemMainBinding.inflate(layoutInflater))
@@ -27,6 +32,8 @@ class MyAdapter(val context: Context, val itemList: MutableList<ItemData>) :
 
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
         val data = itemList.get(position)
+
+        Log.d(TAG, "data - $data")
 
         holder.binding.run {
             itemEmailView.text = data.email
